@@ -1,0 +1,41 @@
+{
+  "name": "BoilerPlateHaz",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start -- --reset-cache",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "react": "16.8.3",
+    "react-native": "0.59.1",
+    "react-native-navigation": "^2.14.0",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^1.0.2",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/runtime": "^7.3.4",
+    "babel-jest": "^24.5.0",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.5.0",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "prettier": "^1.16.4",
+    "react-test-renderer": "16.8.3",
+    "redux-logger": "^3.0.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
