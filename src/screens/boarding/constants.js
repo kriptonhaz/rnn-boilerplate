@@ -1,0 +1,2 @@
+export const BOARDING_PAGE = 'BOARDING_PAGE';
+export const BOARDING_STATUS = 'BOARDING_STATUS';

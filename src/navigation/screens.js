@@ -1,24 +1,23 @@
 import * as views from './views';
 
-const main = () => ({
+const boarding = () => ({
+  root: {
+    component: views.boarding()
+  },
+})
+
+const login = () =>({
   root: {
     stack: {
-      children: [
-        Login()
-      ],
+      children: [{
+        component: views.login()
+      }]
     }
   },
 })
 
-const Login = () => ({
-  stack: {
-    children: [
-      views.login()
-    ]
-  }
-})
-
 export {
-  main,
-  Login
+  boarding,
+  login,
+  views
 }

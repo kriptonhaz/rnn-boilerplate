@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import { connect } from 'react-redux';
 import {loginRequest, loginStatus} from './action';
+import {Navigation} from 'react-native-navigation';
+import navigation from '../../navigation/';
 
 export class LoginScreen extends React.PureComponent{
 
@@ -10,10 +12,25 @@ export class LoginScreen extends React.PureComponent{
     console.log('loginStatus = '+JSON.stringify(this.props.loginRedux.isLogin));
   }
 
+  goForgot = () =>{
+    Navigation.push(this.props.componentId, navigation.views.forgotPassword());
+  }
+
   render(){
     return(
-      <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+      <View style={{justifyContent: 'center', alignItems: 'center', flex: 1, backgroundColor: 'red'}}>
         <Text onPress={()=>this.setStatus()}>SAMPLE TEXT</Text>
+        <TouchableOpacity 
+        onPress={()=>this.goForgot()}
+        style={{
+          width: 100,
+          height: 50,
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: 'pink'
+        }}>
+          <Text>Forgot Password</Text>
+        </TouchableOpacity>
       </View>
     )
   }
