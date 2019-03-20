@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import {connect} from 'react-redux';
 import navigation from '../../navigation/';
+import {boardingStatus} from './actions';
 
 export class BoardingScreen extends React.PureComponent{
   constructor(props){
@@ -12,12 +13,12 @@ export class BoardingScreen extends React.PureComponent{
     }
   }
 
-  navigate = () =>{
-    console.log('navigate push');
-    Navigation.push(this.props.componentId, navigation.views.login());
+  boardingStatus = () =>{
+    this.props.boardingStatus(1);
   }
 
   navigateRoot = () =>{
+    console.log('boardingRedux = '+JSON.stringify(this.props.boardingRedux));
     Navigation.setRoot(navigation.login())
   }
 
@@ -26,9 +27,9 @@ export class BoardingScreen extends React.PureComponent{
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'green'}}>
         <Text>BOARDING SCREEN</Text>
         <TouchableOpacity 
-          onPress={()=>this.navigate()}
+          onPress={()=>this.boardingStatus()}
           style={{width: 100, height: 50, borderRadius: 10, backgroundColor: '#4876ba', alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{color: 'white'}}>TEST PUSH</Text>
+          <Text style={{color: 'white'}}>SET BOARDING 1</Text>
         </TouchableOpacity>
         <TouchableOpacity 
           onPress={()=>this.navigateRoot()}
@@ -43,7 +44,7 @@ export class BoardingScreen extends React.PureComponent{
 const mapStateToProps = state => ({ boardingRedux: state.boarding })
 
 const mapDispatchToProps = dispatch => ({ 
-  
+  boardingStatus: (val) => dispatch(boardingStatus(val))
 })
 
 export default connect(
