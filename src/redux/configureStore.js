@@ -11,7 +11,7 @@ const persistConfig = {
   timeout: 0,
 	key: 'root',
 	storage,
-	blacklist: ['util']
+	// blacklist: ['util']
 }
 const combinedReducer = persistCombineReducers(persistConfig, rootReducer);
 

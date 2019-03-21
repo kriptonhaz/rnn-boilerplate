@@ -18,7 +18,6 @@ export class BoardingScreen extends React.PureComponent{
   }
 
   navigateRoot = () =>{
-    console.log('boardingRedux = '+JSON.stringify(this.props.boardingRedux));
     Navigation.setRoot(navigation.login())
   }
 
@@ -26,6 +25,7 @@ export class BoardingScreen extends React.PureComponent{
     return(
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'green'}}>
         <Text>BOARDING SCREEN</Text>
+        <Text style={{color: 'white'}}>Boarding Status = {this.props.boardingRedux.boardingStatus}</Text>
         <TouchableOpacity 
           onPress={()=>this.boardingStatus()}
           style={{width: 100, height: 50, borderRadius: 10, backgroundColor: '#4876ba', alignItems: 'center', justifyContent: 'center'}}>
