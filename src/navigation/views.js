@@ -1,5 +1,19 @@
 import * as parts from './parts';
 
+export const loading = () => ({
+  id: 'Loading',
+  name: 'Loading',
+  options: {
+    topBar: {
+      visible: false,
+      drawBehind: true
+    },
+    animations: {
+      push: parts.animationPush()
+    }
+  }
+});
+
 export const boarding = () => ({
   id: 'Boarding',
   name: 'Boarding',
