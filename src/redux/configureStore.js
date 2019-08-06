@@ -1,30 +1,30 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
+import thunk from 'redux-thunk';
+import { compact } from 'lodash';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { persistStore } from 'redux-persist';
-import storage from 'redux-persist/es/storage';
+
 import rootReducer from './createReducer';
 import rootSaga from './rootSaga';
-import { persistCombineReducers } from 'redux-persist';
 
-const persistConfig = {
-  timeout: 0,
-	key: 'root',
-	storage,
-	// blacklist: ['util']
-}
-const combinedReducer = persistCombineReducers(persistConfig, rootReducer);
-
-export default function configureStore(initialState) {
+export default function configureStore() {
   const sagaMiddleware = createSagaMiddleware();
+
+  const middlewares = compact([
+    thunk.withExtraArgument(),
+    sagaMiddleware,
+    __DEV__ ? createLogger() : null
+  ]);
+  
+  let debuggWrapper = data => data;
+
   const store = createStore(
-    combinedReducer,
-    initialState,
-    applyMiddleware(
-      sagaMiddleware,
-      __DEV__ ? createLogger() : null
-    ),
+    rootReducer,
+    {},
+    debuggWrapper(compose(applyMiddleware(...middlewares)))
   );
+
   persistStore(
     store,
     null,
