@@ -9,7 +9,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "16.8.3",
     "react-native": "0.59.1",
     "react-native-navigation": "^2.14.0",
